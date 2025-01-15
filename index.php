@@ -1,5 +1,11 @@
 <?php
     include('bd/conexao.php') ;
+
+    session_start();
+
+    define('CONTROL', true);
+
+    
 ?>
 
 <!DOCTYPE html>
@@ -17,8 +23,8 @@
             <a href="index.php?menuOp=home">Home</a>
             <a href="index.php?menuOp=contatos">Contatos</a>
             <a href="index.php?menuOp=tarefas">Tarefas</a>
-            <a href="index.php?menuOp=eventos">Eventos
-            </a>
+            <a href="index.php?menuOp=eventos">Eventos</a>
+            <a href="index.php?menuOp=login">Login</a>
             <!-- percebe a variavel menuOp que é passada pela url para dar controle sobre o que será exibido na tela -->
         </nav>
     </header>
@@ -38,11 +44,20 @@
         case 'inserir-contato':
                 require_once 'Nova pasta/inserir-contato.php';
                 break;
+        case 'excluirContato':
+            require_once 'Nova pasta/excluirContato.php';
+            break;
+        case 'editarContato':
+            require_once 'Nova pasta/editarContato.php';
+            break;
         case 'tarefas':
             require_once 'Nova pasta/tarefas.php';
             break;
         case 'eventos':
             require_once 'Nova pasta/eventos.php';
+            break;
+        case 'login':
+            require_once 'acesso/login.php';
             break;
         default:
             require_once 'Nova pasta/home.php';
